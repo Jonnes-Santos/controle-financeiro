@@ -48,7 +48,7 @@
 
 
 📂 Estrutura do Projeto
-
+Copy
 controle-financeiro/
 ├── server.js            # Backend (Node.js + Express + MySQL)
 ├── index.html           # Frontend (HTML + JavaScript)
