@@ -43,29 +43,12 @@
   </table>
 </div>
 
----
-
-## 🛠️ Pré-requisitos
-
-Antes de começar, você precisará ter instalado em sua máquina:
-
-- <img src="https://img.icons8.com/color/48/000000/nodejs.png" width="16" height="16" alt="Node.js"> [Node.js](https://nodejs.org/) (v18 ou superior)
-- <img src="https://img.icons8.com/color/48/000000/mysql.png" width="16" height="16" alt="MySQL"> [MySQL](https://www.mysql.com/) (ou um servidor MySQL remoto)
-- <img src="https://img.icons8.com/color/48/000000/mysql-workbench.png" width="16" height="16" alt="MySQL Workbench"> [MySQL Workbench](https://www.mysql.com/products/workbench/) (opcional, para gerenciar o banco de dados)
 
 ---
 
-## 🚀 Como Executar o Projeto
 
-Siga os passos abaixo para configurar e executar o projeto:
-
-### 1. Clone o Repositório
-
-```bash
-git clone https://github.com/seu-usuario/controle-financeiro.git
-cd controle-financeiro
 📂 Estrutura do Projeto
-Copy
+
 controle-financeiro/
 ├── server.js            # Backend (Node.js + Express + MySQL)
 ├── index.html           # Frontend (HTML + JavaScript)
