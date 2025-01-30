@@ -45,33 +45,4 @@
 
 ---
 
-## 🛠️ Pré-requisitos
 
-Antes de começar, você precisará ter instalado em sua máquina:
-
-- <img src="https://img.icons8.com/color/48/000000/nodejs.png" width="16" height="16" alt="Node.js"> [Node.js](https://nodejs.org/) (v18 ou superior)
-- <img src="https://img.icons8.com/color/48/000000/mysql.png" width="16" height="16" alt="MySQL"> [MySQL](https://www.mysql.com/) (ou um servidor MySQL remoto)
-- <img src="https://img.icons8.com/color/48/000000/mysql-workbench.png" width="16" height="16" alt="MySQL Workbench"> [MySQL Workbench](https://www.mysql.com/products/workbench/) (opcional, para gerenciar o banco de dados)
-
----
-
-
-
-📂 Estrutura do Projeto
-Copy
-controle-financeiro/
-├── server.js            # Backend (Node.js + Express + MySQL)
-├── index.html           # Frontend (HTML + JavaScript)
-├── README.md            # Documentação do projeto
-├── package.json         # Dependências do Node.js
-└── node_modules/        # Dependências instaladas
-🤝 Como Contribuir
-Faça um fork do projeto.
-
-Crie uma branch para sua feature (git checkout -b feature/nova-feature).
-
-Commit suas alterações (git commit -m 'Adiciona nova feature').
-
-Push para a branch (git push origin feature/nova-feature).
-
-Abra um Pull Request.
