@@ -55,65 +55,7 @@ Antes de começar, você precisará ter instalado em sua máquina:
 
 ---
 
-## 🚀 Como Executar o Projeto
 
-Siga os passos abaixo para configurar e executar o projeto:
-
-### 1. Clone o Repositório
-
-```bash
-git clone https://github.com/seu-usuario/controle-financeiro.git
-cd controle-financeiro
-Run HTML
-2. Configure o Banco de Dados
-Abra o MySQL Workbench ou terminal do MySQL.
-
-Crie um banco de dados chamado controle_financeiro:
-
-sql
-Copy
-CREATE DATABASE controle_financeiro;
-Crie a tabela transacoes:
-
-sql
-Copy
-USE controle_financeiro;
-
-CREATE TABLE transacoes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    tipo ENUM('gasto', 'ganho') NOT NULL,
-    valor DECIMAL(10, 2) NOT NULL,
-    descricao VARCHAR(255),
-    data DATE NOT NULL,
-    mes VARCHAR(20) NOT NULL
-);
-3. Configure o Backend
-Instale as dependências do projeto:
-
-bash
-Copy
-npm install
-Configure as credenciais do banco de dados no arquivo server.js:
-
-javascript
-Copy
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root', // Substitua pelo seu usuário do MySQL
-    password: '', // Substitua pela sua senha do MySQL
-    database: 'controle_financeiro'
-});
-Inicie o servidor:
-
-bash
-Copy
-node server.js
-O servidor estará rodando em http://localhost:3000.
-
-4. Configure o Frontend
-Abra o arquivo index.html no navegador.
-
-Certifique-se de que o backend está rodando para que as requisições funcionem.
 
 📂 Estrutura do Projeto
 Copy
