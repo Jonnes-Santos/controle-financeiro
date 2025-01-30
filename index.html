@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; }
+        .saldo { font-size: 1.5em; font-weight: bold; margin-top: 20px; }
+        .historico { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Controle Financeiro</h1>
+
+        <div class="mb-3">
+            <label for="mes" class="form-label">Selecione o mês:</label>
+            <input type="month" id="mes" class="form-control">
+        </div>
+
+        <div class="d-grid gap-2 d-md-block mb-4">
+            <button class="btn btn-primary" onclick="inserirGasto()">Inserir Gasto</button>
+            <button class="btn btn-success" onclick="inserirGanho()">Inserir Ganho</button>
+            <button class="btn btn-info" onclick="mostrarHistorico()">Mostrar Histórico</button>
+            <button class="btn btn-danger" onclick="excluirHistorico()">Excluir Histórico</button>
+            <button class="btn btn-warning" onclick="calcularSaldo()">Calcular Saldo</button>
+        </div>
+
+        <div class="historico">
+            <h3>Histórico de Transações</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Descrição</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody id="historico-body"></tbody>
+            </table>
+        </div>
+
+        <div class="saldo">
+            <h3>Saldo Atual:</h3>
+            <p id="saldo">R$ 0,00</p>
+        </div>
+    </div>
+
+    <script>
+        const mesInput = document.getElementById('mes');
+        const historicoBody = document.getElementById('historico-body');
+        const saldoDiv = document.getElementById('saldo');
+
+        async function inserirTransacao(tipo) {
+            const valor = prompt(`Digite o valor do ${tipo}:`);
+            const descricao = prompt(`Digite a descrição do ${tipo}:`);
+            const data = prompt('Digite a data (YYYY-MM-DD):');
+            const mes = mesInput.value;
+
+            const response = await fetch('http://localhost:3000/inserir', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tipo, valor, descricao, data, mes })
+            });
+            alert(await response.text());
+        }
+
+        async function mostrarHistorico() {
+            const mes = mesInput.value;
+            const response = await fetch(`http://localhost:3000/historico/${mes}`);
+            const historico = await response.json();
+
+            historicoBody.innerHTML = '';
+
+            historico.forEach(transacao => {
+                const row = document.createElement('tr');
+                const dataFormatada = new Date(transacao.data).toLocaleDateString('pt-BR');
+                row.innerHTML = `
+                    <td>${transacao.id}</td>
+                    <td>${transacao.tipo}</td>
+                    <td>R$ ${transacao.valor}</td>
+                    <td>${transacao.descricao}</td>
+                    <td>${dataFormatada}</td>
+                `;
+                historicoBody.appendChild(row);
+            });
+        }
+
+        async function excluirHistorico() {
+            const id = prompt('Digite o ID da transação para excluir:');
+            const response = await fetch(`http://localhost:3000/excluir/${id}`, { method: 'DELETE' });
+            alert(await response.text());
+        }
+
+        async function calcularSaldo() {
+            const mes = mesInput.value;
+            const response = await fetch(`http://localhost:3000/saldo/${mes}`);
+            const saldo = await response.json();
+            saldoDiv.innerHTML = `R$ ${saldo.saldo || 0}`;
+        }
+
+        function inserirGasto() { inserirTransacao('gasto'); }
+        function inserirGanho() { inserirTransacao('ganho'); }
+    </script>
+</body>
+</html>
+
