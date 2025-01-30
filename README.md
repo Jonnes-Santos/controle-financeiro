@@ -64,3 +64,11 @@ Siga os passos abaixo para configurar e executar o projeto:
 ```bash
 git clone https://github.com/seu-usuario/controle-financeiro.git
 cd controle-financeiro
+📂 Estrutura do Projeto
+Copy
+controle-financeiro/
+├── server.js            # Backend (Node.js + Express + MySQL)
+├── index.html           # Frontend (HTML + JavaScript)
+├── README.md            # Documentação do projeto
+├── package.json         # Dependências do Node.js
+└── node_modules/        # Dependências instaladas
