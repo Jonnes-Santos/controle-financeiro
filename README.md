@@ -47,6 +47,11 @@
 ---
 
 
+4. Configure o Frontend
+Abra o arquivo index.html no navegador.
+
+Certifique-se de que o backend está rodando para que as requisições funcionem.
+
 📂 Estrutura do Projeto
 Copy
 controle-financeiro/
@@ -55,3 +60,13 @@ controle-financeiro/
 ├── README.md            # Documentação do projeto
 ├── package.json         # Dependências do Node.js
 └── node_modules/        # Dependências instaladas
+🤝 Como Contribuir
+Faça um fork do projeto.
+
+Crie uma branch para sua feature (git checkout -b feature/nova-feature).
+
+Commit suas alterações (git commit -m 'Adiciona nova feature').
+
+Push para a branch (git push origin feature/nova-feature).
+
+Abra um Pull Request.
