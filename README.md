@@ -43,9 +43,72 @@
   </table>
 </div>
 
+---
+
+## 🛠️ Pré-requisitos
+
+Antes de começar, você precisará ter instalado em sua máquina:
+
+- <img src="https://img.icons8.com/color/48/000000/nodejs.png" width="16" height="16" alt="Node.js"> [Node.js](https://nodejs.org/) (v18 ou superior)
+- <img src="https://img.icons8.com/color/48/000000/mysql.png" width="16" height="16" alt="MySQL"> [MySQL](https://www.mysql.com/) (ou um servidor MySQL remoto)
+- <img src="https://img.icons8.com/color/48/000000/mysql-workbench.png" width="16" height="16" alt="MySQL Workbench"> [MySQL Workbench](https://www.mysql.com/products/workbench/) (opcional, para gerenciar o banco de dados)
 
 ---
 
+## 🚀 Como Executar o Projeto
+
+Siga os passos abaixo para configurar e executar o projeto:
+
+### 1. Clone o Repositório
+
+```bash
+git clone https://github.com/seu-usuario/controle-financeiro.git
+cd controle-financeiro
+Run HTML
+2. Configure o Banco de Dados
+Abra o MySQL Workbench ou terminal do MySQL.
+
+Crie um banco de dados chamado controle_financeiro:
+
+sql
+Copy
+CREATE DATABASE controle_financeiro;
+Crie a tabela transacoes:
+
+sql
+Copy
+USE controle_financeiro;
+
+CREATE TABLE transacoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo ENUM('gasto', 'ganho') NOT NULL,
+    valor DECIMAL(10, 2) NOT NULL,
+    descricao VARCHAR(255),
+    data DATE NOT NULL,
+    mes VARCHAR(20) NOT NULL
+);
+3. Configure o Backend
+Instale as dependências do projeto:
+
+bash
+Copy
+npm install
+Configure as credenciais do banco de dados no arquivo server.js:
+
+javascript
+Copy
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root', // Substitua pelo seu usuário do MySQL
+    password: '', // Substitua pela sua senha do MySQL
+    database: 'controle_financeiro'
+});
+Inicie o servidor:
+
+bash
+Copy
+node server.js
+O servidor estará rodando em http://localhost:3000.
 
 4. Configure o Frontend
 Abra o arquivo index.html no navegador.
